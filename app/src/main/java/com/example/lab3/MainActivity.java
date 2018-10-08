@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.lab3.R.id.email;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,34 +28,50 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn_submit = (Button)findViewById(R.id.btn_submit);
 
+        final boolean flag = true;
+
+
+
         btn_submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                boolean flag = true;
+
                 res.setText("");
 
-                if(pass.getText().toString().equals(pass2.getText().toString()) == false) {
-                    res.setText(res.getText().toString() + "\n The password do not match");
-                    flag = false;
-                }
-                if (email.getText().toString().trim().matches(emailPattern) == false) {
-                    res.setText(res.getText().toString() + "\n The email is not valid");
-                    flag = false;
-                }
-                if(pass.getText().toString().trim().length() == 0 || pass2.getText().toString().trim().length() == 0 || phone.getText().toString().trim().length() == 0
-                || email.getText().toString().trim().length() == 0 || f_name.getText().toString().trim().length() == 0 || l_name.getText().toString().trim().length() == 0) {
-                    res.setText(res.getText().toString() + "\n Enter all fields");
-                    flag = false;
-                }
-
-                if(pass.getText().toString().trim().length() < 8 || pass2.getText().toString().trim().length() < 8) {
-                    res.setText(res.getText().toString() + "\n Short password");
-                    flag = false;
-                }
+                CheckFields();
+                CheckPassword();
+                CheckEmail();
 
                 if(flag == true) {
                     res.setText("Authorization is successful");
                 }
             }
         });
+    }
+
+    public void CheckPassword(){
+        if(pass.getText().toString().equals(pass2.getText().toString()) == false) {
+            res.setText(res.getText().toString() + "\n The password do not match");
+            flag = false;
+        }
+
+        if(pass.getText().toString().trim().length() < 8 || pass2.getText().toString().trim().length() < 8) {
+            res.setText(res.getText().toString() + "\n Short password");
+            flag = false;
+        }
+    }
+
+    public void CheckEmail(){
+        if (email.getText().toString().trim().matches(emailPattern) == false) {
+            res.setText(res.getText().toString() + "\n The email is not valid");
+            flag = false;
+        }
+    }
+
+    public void CheckFields(){
+        if(pass.getText().toString().trim().length() == 0 || pass2.getText().toString().trim().length() == 0 || phone.getText().toString().trim().length() == 0
+                || email.getText().toString().trim().length() == 0 || f_name.getText().toString().trim().length() == 0 || l_name.getText().toString().trim().length() == 0) {
+            res.setText(res.getText().toString() + "\n Enter all fields");
+            flag = false;
+        }
     }
 }
