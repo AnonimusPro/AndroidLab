@@ -12,23 +12,33 @@ import static com.example.lab3.R.id.email;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText pass;
+    EditText pass2;
+    EditText phone;
+    EditText email;
+    EditText f_name;
+    EditText l_name;
+    TextView res;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    boolean flag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final EditText pass = (EditText) findViewById(R.id.password);
-        final EditText pass2 = (EditText) findViewById(R.id.confirm);
-        final EditText phone = (EditText) findViewById(R.id.phone);
-        final EditText email = (EditText) findViewById(R.id.email);
-        final EditText f_name = (EditText) findViewById(R.id.first_name);
-        final EditText l_name = (EditText) findViewById(R.id.last_name);
 
-        final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        final TextView res = (TextView)findViewById(R.id.result);
+
+       pass = (EditText) findViewById(R.id.password);
+       pass2 = (EditText) findViewById(R.id.confirm);
+       phone = (EditText) findViewById(R.id.phone);
+       email = (EditText) findViewById(R.id.email);
+       f_name = (EditText) findViewById(R.id.first_name);
+       l_name = (EditText) findViewById(R.id.last_name);
+       res = (TextView)findViewById(R.id.result);
 
         Button btn_submit = (Button)findViewById(R.id.btn_submit);
 
-        final boolean flag = true;
+        flag = true;
 
 
 
