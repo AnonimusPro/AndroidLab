@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
                     name.add(f_name.getText().toString() + ' ' + l_name.getText().toString());
                     number.add(phone.getText().toString());
-
+                    Clear();
                     packagesharedPreferences();
                 }
             }
@@ -115,6 +115,14 @@ public class MainActivity extends AppCompatActivity {
             res.setText(res.getText().toString() + "\n Enter all fields");
             flag = false;
         }
+    }
+    public void Clear(){
+        pass.setText("");
+        pass2.setText("");
+        email.setText("");
+        phone.setText("");
+        f_name.setText("");
+        l_name.setText("");
     }
 
     private void packagesharedPreferences() {
